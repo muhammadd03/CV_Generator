@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ user_profile.name }}'s Resume</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .resume-wrapper {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h2 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #333;
+        }
+        .header .subheader {
+            margin: 5px 0;
+            font-size: 1.2em;
+            color: #666;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            color: #007bff;
+            text-transform: uppercase;
+            font-size: 1.5em;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        .contact-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+            display: inline-block;
+        }
+        .contact-info li {
+            display: inline;
+            margin: 0 10px;
+            color: #333;
+        }
+        .contact-info li:after {
+            content: '|';
+            margin-left: 10px;
+            color: #999;
+        }
+        .contact-info li:last-child:after {
+            content: '';
+            margin-left: 0;
+        }
+        .section p, .section ul {
+            margin: 0 0 10px;
+        }
+        .section ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-wrapper">
+        <div class="header">
+            <h2>{{ user_profile.name }}</h2>
+        </div>
+        <div class="contact-info">
+            <ul>
+                <li>Email: {{ user_profile.email }}</li>
+                <li>Phone: {{ user_profile.phone }}</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h3 class="section-title">Summary</h3>
+            <p>{{ user_profile.summary }}</p>
+        </div>
+        <div class="section">
+            <h3 class="section-title">Experience</h3>
+            <p>{{ user_profile.previous_work }}</p>
+        </div>
+        <div class="section">
+            <h3 class="section-title">Education</h3>
+            <ul>
+                <li>Schooling: {{ user_profile.school }}</li>
+                <li>{{ user_profile.degree }} from {{ user_profile.university }}</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h3 class="section-title">Skills</h3>
+            <p>{{ user_profile.skills }}</p>
+        </div>
+    </div>
+</body>
+</html>
